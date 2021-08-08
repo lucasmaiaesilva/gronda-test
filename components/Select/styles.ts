@@ -17,7 +17,6 @@ export const Dropdown = styled.div`
 
   .dropdown-trigger {
     display: inline-block;
-    margin-right: 1.5rem;
     position: relative;
     &:hover {
       cursor: pointer;

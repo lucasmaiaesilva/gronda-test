@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import Container from '../components/Container'
 import Card from '../components/Card'
-import Select from '../components/Select'
+import InfoBar from '../components/InfoBar'
+import Table from '../components/Table'
 
 const Display = styled.section`
   @media screen and (min-width: 1024px) {
@@ -14,7 +15,7 @@ const Display = styled.section`
 export default function Home() {
   return (
     <>
-      <Select />
+      <InfoBar />
       <Container>
         <Display>
           <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
@@ -22,6 +23,8 @@ export default function Home() {
           <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
         </Display>
       </Container>
+      <InfoBar />
+      <Table />
     </>
   )
 }
