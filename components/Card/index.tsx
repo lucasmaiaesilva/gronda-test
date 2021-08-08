@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import * as S from './styles'
 
 type CardProps = {
@@ -7,7 +7,11 @@ type CardProps = {
   indicatorPeriod: string
 }
 
-const Card = ({ indicatorType, indicatorValue, indicatorPeriod }: CardProps) => {
+const Card: FC<CardProps> = ({
+  indicatorType,
+  indicatorValue,
+  indicatorPeriod
+}) => {
   return (
     <S.CardContainer>
       <h1 className="type">{indicatorType}</h1>
