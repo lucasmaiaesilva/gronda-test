@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 import Container from '../components/Container'
 import Card from '../components/Card'
-
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+import Select from '../components/Select'
 
 const Display = styled.section`
   @media screen and (min-width: 1024px) {
@@ -17,14 +13,16 @@ const Display = styled.section`
 
 export default function Home() {
   return (
-
-    <Container>
-      <Display>
-        <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
-        <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
-        <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
-      </Display>
-    </Container>
+    <>
+      <Select />
+      <Container>
+        <Display>
+          <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
+          <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
+          <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
+        </Display>
+      </Container>
+    </>
   )
 }
 
