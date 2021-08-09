@@ -18,9 +18,24 @@ export default function Home() {
       <InfoBar />
       <Container>
         <Display>
-          <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
-          <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
-          <Card indicatorType="Active sourcing" indicatorValue={20} indicatorPeriod="34 Last Period" />
+          <Card
+            kind="active_source"
+            indicatorType="Active sourcing"
+            indicatorValue={20}
+            indicatorPeriod="34 Last Period"
+          />
+          <Card
+            kind="weekly_active"
+            indicatorType="Active sourcing"
+            indicatorValue={20}
+            indicatorPeriod="34 Last Period"
+          />
+          <Card
+            kind="nps"
+            indicatorType="Active sourcing"
+            indicatorValue={20}
+            indicatorPeriod="34 Last Period"
+          />
         </Display>
       </Container>
       <InfoBar />

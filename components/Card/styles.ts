@@ -1,9 +1,14 @@
 import styled from 'styled-components'
+import data from './cardEnum.json'
 
-export const CardContainer = styled.div`
+interface CardStyleProps {
+  kind: string;
+}
+
+export const CardContainer = styled.div<CardStyleProps>`
   position: relative;
   padding: 2rem 2.2rem;
-  height: 12rem;
+  height: 18rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -12,6 +17,10 @@ export const CardContainer = styled.div`
   font-family: sans-serif;
   border-radius: .4rem;
   overflow: hidden;
+
+  @media screen and (min-width: 1024px) {
+    height: 16rem;
+  }
 
   & > * {
     padding: 0;
@@ -53,5 +62,6 @@ export const CardContainer = styled.div`
     right: -6rem;
   }
 
-  background-color: tomato;
+  background: ${({ kind }) => data[kind]["static-background"]};
+  background: ${({ kind }) => data[kind]["gradient-background"]};
 `
