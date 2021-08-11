@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Container from '../components/Container'
 import Card from '../components/Card'
 import InfoBar from '../components/InfoBar'
-// import Table from '../components/Table'
+import Table from '../components/Table'
 
 const Display = styled.section`
   @media screen and (min-width: 1024px) {
@@ -17,24 +17,16 @@ type displayCategoryItemProps = {
   last_period: number,
 }
 
-// type displayCategoryProps = {
-//   active_source: displayCategoryItemProps,
-//   nps: displayCategoryItemProps,
-//   weekly_active: displayCategoryItemProps,
-// }
-
-// type displayDataProps = {
-//   data: displayCategoryProps
-// }
-
 type dropdownOption = {
   name: string,
   func: Function,
 }
 
-export default function Home({ data }:any) {
+export default function Home() {
   const [ filterOption, setFilterOption ] = useState('This Month');
   const [ sortOption, setSortOption ] = useState('id');
+  const [ cardsData, setCardsData ] = useState({});
+  const [ filteredData, setFilteredData ] = useState([])
 
   const filterOptions:dropdownOption[] = [
     {
@@ -103,12 +95,18 @@ export default function Home({ data }:any) {
   ]
 
   useEffect(() => {
+    fetch(`http://localhost:3000/api/data?test=${filterOption}`)
+      .then(res => res.json())
+      .then(({ resp }):any => setCardsData(resp))
+  }, [filterOption])
+
+  useEffect(() => {
     fetch(`http://localhost:3000/api/filter?test=${sortOption}`)
       .then(res => res.json())
-      .then(data => console.log({ data }))
+      .then(({ resp }):any => setFilteredData(resp))
   }, [sortOption])
 
-  const cards:Array<string> = Object.keys(data)
+  const cards:Array<string> = Object.keys(cardsData)
 
   return (
     <>
@@ -119,8 +117,8 @@ export default function Home({ data }:any) {
       />
       <Container>
         <Display>
-          {cards.map((item:string) => {
-            const dataItem:displayCategoryItemProps = data[item]
+          {cards && cards.map((item:string) => {
+            const dataItem:displayCategoryItemProps = cardsData[item]
             const { current_period, last_period } = dataItem
             return (
               <Card
@@ -138,21 +136,8 @@ export default function Home({ data }:any) {
         options={sortOptions}
         selectedValue={sortOption}
       />
-      {/* <Table /> */}
+      <Table data={filteredData} />
     </>
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/data')
-  const { resp } = await res.json()
-
-  return {
-    props: {
-      data: resp,
-    },
-    revalidate: 3600 * 24,
-    // daily revalidating data to make sure that will be exists only
-    // one request per day on this endpoint
-  };
-};
