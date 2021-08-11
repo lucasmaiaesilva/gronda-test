@@ -4,6 +4,7 @@ import Container from '../components/Container'
 import Card from '../components/Card'
 import InfoBar from '../components/InfoBar'
 import Table from '../components/Table'
+import mountPayload from '../utils/mountFilterPayload'
 
 const Display = styled.section`
   @media screen and (min-width: 1024px) {
@@ -95,7 +96,15 @@ export default function Home() {
   ]
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/data?test=${filterOption}`)
+    const options = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(mountPayload(filterOption))
+    }
+    fetch(`http://localhost:3000/api/data`, options)
       .then(res => res.json())
       .then(({ resp }):any => setCardsData(resp))
   }, [filterOption])
@@ -111,6 +120,7 @@ export default function Home() {
   return (
     <>
       <InfoBar
+        titleBar={`Filtering by ${filterOption}`}
         label="Filter By"
         options={filterOptions}
         selectedValue={filterOption}
@@ -132,6 +142,7 @@ export default function Home() {
         </Display>
       </Container>
       <InfoBar
+        titleBar={`Sorting by ${sortOption}`}
         label="Sort By"
         options={sortOptions}
         selectedValue={sortOption}

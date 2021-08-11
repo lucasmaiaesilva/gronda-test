@@ -1,7 +1,7 @@
 import dataMock from './data-mock'
 
 async function handler(req, res) {
-  if (req.method === 'GET') {
+  if (req.method === 'POST') {
     try {
       res.status(200).json({ resp: dataMock });
     } catch (e) {

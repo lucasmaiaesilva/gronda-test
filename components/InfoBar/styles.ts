@@ -6,9 +6,17 @@ export const InfoBar = styled.div`
 
   @media screen and (min-width: 1024px) {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
+  .title-bar {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+
+    @media screen and (min-width: 1024px) {
+    margin: 0;
+    }
+  }
   .info-block {
     display: flex;
     align-items: center;

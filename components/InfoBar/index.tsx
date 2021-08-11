@@ -5,12 +5,16 @@ import Select from '../Select'
 type InfoBarProps = {
   label: string,
   options: any,
-  selectedValue: string
+  selectedValue: string,
+  titleBar?: string,
 }
 
-const InfoBar = ({ label, options, selectedValue }:InfoBarProps) => (
+const InfoBar = ({ label, options, selectedValue, titleBar }:InfoBarProps) => (
   <Container>
     <S.InfoBar>
+      <div className="title-bar">
+        {titleBar ?? ''}
+      </div>
       <div className="info-block">
         <span>{label}</span>
         <Select options={options} selectedValue={selectedValue} />
