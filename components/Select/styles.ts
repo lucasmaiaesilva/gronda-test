@@ -89,6 +89,8 @@ export const Dropdown = styled.div`
       & li button {
         all: unset;
         display: block;
+        box-sizing: border-box;
+        width: 100%;
         padding: 0.8rem 1.5rem;
         font-size: 1.4rem;
         color: #6e6d7a;
