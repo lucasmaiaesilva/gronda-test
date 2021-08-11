@@ -7,6 +7,10 @@ const GlobalStyle = createGlobalStyle`
     @media screen and (min-width: 1024px) {
       font-size: 10px;
     }
+
+    @media screen and (min-width: 1400px) {
+      font-size: 14px;
+    }
   }
   body {
     margin: 0;

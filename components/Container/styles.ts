@@ -10,4 +10,8 @@ export const Container = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 1500px;
+  }
 `;
