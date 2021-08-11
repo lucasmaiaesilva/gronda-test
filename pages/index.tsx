@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Container from '../components/Container'
 import Card from '../components/Card'
 import InfoBar from '../components/InfoBar'
-import Table from '../components/Table'
+// import Table from '../components/Table'
 
 const Display = styled.section`
   @media screen and (min-width: 1024px) {
@@ -12,28 +12,27 @@ const Display = styled.section`
     column-gap: 3.4rem;
   }
 `
-
 type displayCategoryItemProps = {
   current_period: number,
-  last_period: number
+  last_period: number,
 }
 
-type displayCategoryProps = {
-  active_source: displayCategoryItemProps,
-  nps: displayCategoryItemProps,
-  weekly_active: displayCategoryItemProps,
-}
+// type displayCategoryProps = {
+//   active_source: displayCategoryItemProps,
+//   nps: displayCategoryItemProps,
+//   weekly_active: displayCategoryItemProps,
+// }
 
-type displayDataProps = {
-  data: displayCategoryProps
-}
+// type displayDataProps = {
+//   data: displayCategoryProps
+// }
 
 type dropdownOption = {
   name: string,
   func: Function,
 }
 
-export default function Home({ data }:displayDataProps) {
+export default function Home({ data }:any) {
   const [ filterOption, setFilterOption ] = useState('This Month');
   const [ sortOption, setSortOption ] = useState('id');
 
