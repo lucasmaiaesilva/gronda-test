@@ -66,6 +66,10 @@ export const Dropdown = styled.div`
     position: absolute;
     top: 3.6rem;
     z-index: 3;
+    @media screen and (min-width: 1024px) {
+      right: 0;
+      left: auto;
+    }
 
     & ul {
       padding: 0;

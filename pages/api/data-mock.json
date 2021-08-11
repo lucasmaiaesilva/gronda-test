@@ -1,0 +1,15 @@
+{
+  "active_source": {
+    "current_period": 25,
+    "last_period": 10
+  },
+  "weekly_active": {
+    "current_period": 35,
+    "last_period": 10
+  },
+  "nps": {
+    "current_period": 15,
+    "last_period": 10
+  }
+}
+

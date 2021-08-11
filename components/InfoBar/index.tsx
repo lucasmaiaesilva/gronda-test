@@ -2,12 +2,18 @@ import * as S from './styles'
 import Container from '../Container'
 import Select from '../Select'
 
-const InfoBar = () => (
+type InfoBarProps = {
+  label: string,
+  options: any,
+  selectedValue: string
+}
+
+const InfoBar = ({ label, options, selectedValue }:InfoBarProps) => (
   <Container>
     <S.InfoBar>
       <div className="info-block">
-        <span>Filter By: </span>
-        <Select />
+        <span>{label}</span>
+        <Select options={options} selectedValue={selectedValue} />
       </div>
     </S.InfoBar>
   </Container>

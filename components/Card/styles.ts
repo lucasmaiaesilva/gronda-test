@@ -62,6 +62,7 @@ export const CardContainer = styled.div<CardStyleProps>`
     right: -6rem;
   }
 
+
   background: ${({ kind }) => data[kind]["static-background"]};
   background: ${({ kind }) => data[kind]["gradient-background"]};
 `
