@@ -110,32 +110,9 @@ export default function Home() {
   }, [filterOption])
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/filter`,)
+    fetch(`http://localhost:3000/api/filter?sortBy=${sortOption}`,)
       .then(res => res.json())
       .then(({ resp }):any => setFilteredData(resp))
-  }, [])
-
-  const generateResult = (query:string) => {
-    switch (query) {
-      case 'Id':
-        return filteredData.sort((a:any, b:any) => Number(a.id) - Number(b.id))
-          .reverse()
-      case 'Segment':
-        return filteredData.sort((a:any, b:any) => Number(a.segment) - Number(b.segment))
-          .reverse()
-      case 'Best NPS avg':
-        return filteredData.sort((a:any, b:any) => Number(a.nps.average) - Number(b.nps.average))
-      case 'Worst NPS avg':
-        return filteredData.sort((a:any, b:any) => Number(a.nps.average) - Number(b.nps.average))
-          .reverse()
-      default:
-        return filteredData
-    }
-  }
-
-  useEffect(() => {
-    console.log({ sortOption })
-    setFilteredData(() => generateResult(sortOption))
   }, [sortOption])
 
   const cards:Array<string> = Object.keys(cardsData)

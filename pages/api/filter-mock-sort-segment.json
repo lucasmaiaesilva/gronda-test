@@ -1,0 +1,38 @@
+[
+  {
+    "id": 2,
+    "companyname": "Gronda GmbH",
+    "segment": "A",
+    "contract": "XYZ...",
+    "renewals": "",
+    "nps": {
+      "average": 2,
+      "last": "",
+      "first": ""
+    }
+  },
+  {
+    "id": 1,
+    "companyname": "Company 2",
+    "segment": "D",
+    "contract": "Contract test...",
+    "renewals": "",
+    "nps": {
+      "average": 4,
+      "last": "",
+      "first": ""
+    }
+  },
+  {
+    "id": 3,
+    "companyname": "Company 3",
+    "segment": "J",
+    "contract": "Contract test 2...",
+    "renewals": "",
+    "nps": {
+      "average": 200,
+      "last": "",
+      "first": ""
+    }
+  }
+]
