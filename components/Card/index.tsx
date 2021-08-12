@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import cardEnum from './cardEnum'
+import cardEnum from './cardEnum.json'
 import * as S from './styles'
 
 type CardProps = {
@@ -13,9 +13,10 @@ const Card: FC<CardProps> = ({
   indicatorPeriod,
   kind
 }) => {
+  const typedKind = kind as keyof typeof cardEnum;
   return (
     <S.CardContainer kind={kind}>
-      <h1 className="type">{cardEnum[kind].title}</h1>
+      <h1 className="type">{cardEnum[typedKind].title}</h1>
       <h2 className="value">{indicatorValue}</h2>
       <p className="period">{indicatorPeriod}</p>
     </S.CardContainer>

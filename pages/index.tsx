@@ -13,23 +13,23 @@ const Display = styled.section`
     column-gap: 3.4rem;
   }
 `
-type displayCategoryItemProps = {
+type DisplayCategoryItemProps = {
   current_period: number,
   last_period: number,
 }
 
-type dropdownOption = {
+type DropdownOption = {
   name: string,
   func: Function,
 }
 
 export default function Home() {
   const [ filterOption, setFilterOption ] = useState('This Month');
-  const [ sortOption, setSortOption ] = useState('id');
+  const [ sortOption, setSortOption ] = useState('Choose your option');
   const [ cardsData, setCardsData ] = useState({});
   const [ filteredData, setFilteredData ] = useState([])
 
-  const filterOptions:dropdownOption[] = [
+  const filterOptions:DropdownOption[] = [
     {
       name: 'This Month',
       func: () => {
@@ -68,7 +68,7 @@ export default function Home() {
     },
   ]
 
-  const sortOptions:dropdownOption[]  = [
+  const sortOptions:DropdownOption[]  = [
     {
       name: 'Id',
       func: () => {
@@ -110,9 +110,32 @@ export default function Home() {
   }, [filterOption])
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/filter?test=${sortOption}`)
+    fetch(`http://localhost:3000/api/filter`,)
       .then(res => res.json())
       .then(({ resp }):any => setFilteredData(resp))
+  }, [])
+
+  const generateResult = (query:string) => {
+    switch (query) {
+      case 'Id':
+        return filteredData.sort((a:any, b:any) => Number(a.id) - Number(b.id))
+          .reverse()
+      case 'Segment':
+        return filteredData.sort((a:any, b:any) => Number(a.segment) - Number(b.segment))
+          .reverse()
+      case 'Best NPS avg':
+        return filteredData.sort((a:any, b:any) => Number(a.nps.average) - Number(b.nps.average))
+      case 'Worst NPS avg':
+        return filteredData.sort((a:any, b:any) => Number(a.nps.average) - Number(b.nps.average))
+          .reverse()
+      default:
+        return filteredData
+    }
+  }
+
+  useEffect(() => {
+    console.log({ sortOption })
+    setFilteredData(() => generateResult(sortOption))
   }, [sortOption])
 
   const cards:Array<string> = Object.keys(cardsData)
@@ -128,7 +151,7 @@ export default function Home() {
       <Container>
         <Display>
           {cards && cards.map((item:string) => {
-            const dataItem:displayCategoryItemProps = cardsData[item]
+            const dataItem:DisplayCategoryItemProps = cardsData[item]
             const { current_period, last_period } = dataItem
             return (
               <Card
@@ -142,7 +165,6 @@ export default function Home() {
         </Display>
       </Container>
       <InfoBar
-        titleBar={`Sorting by ${sortOption}`}
         label="Sort By"
         options={sortOptions}
         selectedValue={sortOption}

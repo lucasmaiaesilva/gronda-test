@@ -1,8 +1,8 @@
 [
   {
-    "id": 1,
+    "id": 2,
     "companyname": "Gronda GmbH",
-    "segment": "A",
+    "segment": 5,
     "contract": "XYZ...",
     "renewals": "",
     "nps": {
@@ -12,9 +12,9 @@
     }
   },
   {
-    "id": 2,
+    "id": 1,
     "companyname": "Company 2",
-    "segment": "B",
+    "segment": 8,
     "contract": "Contract test...",
     "renewals": "",
     "nps": {
@@ -27,7 +27,7 @@
   {
     "id": 3,
     "companyname": "Company 3",
-    "segment": "B",
+    "segment": 2,
     "contract": "Contract test 2...",
     "renewals": "",
     "nps": {
