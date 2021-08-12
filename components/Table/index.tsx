@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import Container from '../Container'
-// import data from './mockedData.json'
 import * as S from './styles'
 
 const tableHead = [

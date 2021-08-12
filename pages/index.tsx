@@ -151,7 +151,8 @@ export default function Home() {
       <Container>
         <Display>
           {cards && cards.map((item:string) => {
-            const dataItem:DisplayCategoryItemProps = cardsData[item]
+            const typedItem = item as keyof typeof cardsData;
+            const dataItem:DisplayCategoryItemProps = cardsData[typedItem]
             const { current_period, last_period } = dataItem
             return (
               <Card
