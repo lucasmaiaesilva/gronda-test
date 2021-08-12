@@ -1,17 +1,17 @@
 {
   "active_source": {
     "title": "Active sourcing",
-    "static-background": "rgb(238,198,164)",
-    "gradient-background": "linear-gradient(90deg, rgba(238,198,164,1) 0%, rgba(229,161,157,1) 100%)"
+    "background": "rgb(238,198,164)",
+    "backgroundGradient": "linear-gradient(90deg, rgba(238,198,164,1) 0%, rgba(229,161,157,1) 100%)"
   },
   "weekly_active": {
     "title": "Weekly active",
-    "static-background": "rgb(159,193,241)",
-    "gradient-background": "linear-gradient(90deg, rgba(159,193,241,1) 0%, rgba(116,157,226,1) 100%)"
+    "background": "rgb(159,193,241)",
+    "backgroundGradient": "linear-gradient(90deg, rgba(159,193,241,1) 0%, rgba(116,157,226,1) 100%)"
   },
   "nps": {
     "title": "NPS",
-    "static-background": "rgb(160,210,206)",
-    "gradient-background": "linear-gradient(90deg, rgba(160,210,206,1) 0%, rgba(71,173,152,1) 100%)"
+    "background": "rgb(160,210,206)",
+    "backgroundGradient": "linear-gradient(90deg, rgba(160,210,206,1) 0%, rgba(71,173,152,1) 100%)"
   }
 }

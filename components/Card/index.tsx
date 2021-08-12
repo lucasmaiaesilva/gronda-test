@@ -15,7 +15,10 @@ const Card: FC<CardProps> = ({
 }) => {
   const typedKind = kind as keyof typeof cardEnum;
   return (
-    <S.CardContainer kind={kind}>
+    <S.CardContainer
+      background={cardEnum[typedKind].background}
+      backgroundGradient={cardEnum[typedKind].backgroundGradient}
+    >
       <h1 className="type">{cardEnum[typedKind].title}</h1>
       <h2 className="value">{indicatorValue}</h2>
       <p className="period">{indicatorPeriod}</p>

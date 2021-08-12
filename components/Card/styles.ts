@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import data from './cardEnum.json'
 
 interface CardStyleProps {
-  kind: string;
+  background: string;
+  backgroundGradient: string;
 }
 
 export const CardContainer = styled.div<CardStyleProps>`
@@ -63,6 +63,6 @@ export const CardContainer = styled.div<CardStyleProps>`
   }
 
 
-  background: ${({ kind }) => data[kind]["static-background"]};
-  background: ${({ kind }) => data[kind]["gradient-background"]};
+  background: ${({ background }) => background};
+  background: ${({ backgroundGradient }) => backgroundGradient};
 `
